@@ -1,0 +1,48 @@
+{%extends 'base.html'%}
+
+{%block title_block%}
+
+<title>{{category.name}} cakes</title>
+
+{%endblock%}
+
+{%block main_block%}
+<div class="container ms-8">
+  {%if cakes%}
+
+  <h1 class="my-4 text-3xl font-semibold text-black">{{category.name}} Cakes</h1>
+  <div class="mx-auto grid w-full max-w-7xl items-center space-y-4 px-2 py-10 md:grid-cols-2 md:gap-6 md:space-y-0 lg:grid-cols-4">
+    {%for c in cakes%}
+    <div class="rounded-md shadow" data-aos="zoom-in-up"
+    data-aos-duration="3000">
+      <img
+        src="{{c.image.url}}"
+        alt="cake"
+        class="rounded-md [16/9] w-full  md:aspect-auto md:h-[300px] lg:h-[300px] object-cover"
+      />
+      <div class="p-4">
+        <h1 class="inline-flex items-center text-lg font-semibold">
+          {{c.title}}
+        </h1>
+        <p class="mt-3 text-sm text-gray-600">
+          {{c.description}}
+        </p>
+    
+        <button
+          type="button"
+          class="mt-4 w-full rounded-sm bg-amber-500 px-2 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+        >
+        <a href="{% url 'cake-detail' c.id%}" class="mt-2 inline-flex cursor-pointer items-center text-sm font-semibold text-white">
+          Shop Now →
+          
+        </a>
+        </button>
+      </div>
+    </div>
+  {%endfor%}
+  </div>
+  {% else %}
+    <p>No cakes available with this category.</p>
+    {%endif%}
+</div>
+{%endblock%}

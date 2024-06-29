@@ -1,0 +1,76 @@
+{%extends 'base.html'%}
+
+{%block title_block%}
+
+<title>Filters</title>
+
+{%endblock%}
+
+{%block main_block%}
+
+<div class="container ms-80 my-20 flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 mx-auto flex flex-wrap items-center lg:w-4/5"">
+    <h4 class="text-xl font-semibold text-black text-center my-4">Pick A Flavour : </h4>
+
+    {%for flavour in data %}
+
+    <button type="button"
+        class="rounded-md bg-yellow-500 px-3 py-2 ms-80 text-sm font-semibold text-white shadow-sm hover:bg-yellow-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600">
+        <a href="{%url 'flavour-filter' flavour.id%}">
+            {{flavour.name}}
+        </a>
+    </button>
+    {%endfor%}
+    
+
+</div>
+
+<div class="container my-20 ms-80 flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 mx-auto flex flex-wrap items-center lg:w-4/5"">
+    <h4 class="text-xl font-semibold text-black text-center">Pick Your Occasion : </h4>
+
+    {%for oc in occasion %}
+
+    <button type="button"
+        class="rounded-md bg-yellow-500 px-3 py-2 ms-80 text-sm font-semibold text-white shadow-sm hover:bg-yellow-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600">
+        <a href="{%url 'occasion-filter' oc.id%}">
+            {{oc.name}}
+        </a>
+    </button>
+    {%endfor%}
+    
+
+</div>
+
+<div class="container my-20 ms-80 flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 mx-auto flex flex-wrap items-center lg:w-4/5"">
+    <h4 class="text-xl font-semibold text-black text-center">Pick Your Category : </h4>
+
+    {%for c in category%}
+
+    <button type="button"
+        class="rounded-md bg-yellow-500 px-3 py-2 ms-80 text-sm font-semibold text-white shadow-sm hover:bg-yellow-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600">
+        <a href="{%url 'category-filter' c.id%}">
+            {{c.name}}
+        </a>
+    </button>
+    {%endfor%}
+    
+
+</div>
+
+<div class="container my-20 ms-80 flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 mx-auto flex flex-wrap items-center lg:w-4/5"">
+    <h4 class="text-xl font-semibold text-black text-center">  </h4>
+
+    {%for t in tag%}
+
+    <button type="button"
+        class="rounded-md bg-yellow-500 px-3 py-2 ms-80 text-sm font-semibold text-white shadow-sm hover:bg-yellow-600/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600">
+        <a href="{%url 'tag-filter' t.id%}">
+            {{t.name}}
+        </a>
+    </button>
+    {%endfor%}
+    
+
+</div>
+
+
+{%endblock%}

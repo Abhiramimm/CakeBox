@@ -1,0 +1,45 @@
+{%url 'addtocart' data.id%}
+
+<a href="{% url 'index' %}">Continue Shopping</a>
+
+
+<div class="mb-2 pt-0.5">
+                        <h4 class="text-15px mb-3 font-normal capitalize text-opacity-70">
+                          available in:
+                        </h4>
+                        <ul class="flex flex-wrap space-x-2">
+                        {% for variant in cake_variants %}
+                    
+                          <li class="md:text-15px mb-2  h-9 cursor-pointer items-center justify-center rounded border p-1 px-3 text-sm font-medium transition duration-200 ease-in-out md:mb-3 md:h-10">
+                            {{ variant.size_object.name }}
+                            <br>₹{{ variant.price }}
+                          </li>
+                          {%endfor%}
+
+                        </ul>
+                      </div>
+
+
+
+
+
+
+
+
+
+                      <div class="mb-4">
+          <h3 class="text-heading mb-2.5 text-base font-semibold capitalize md:text-lg">
+            Available in:
+          </h3>
+          <ul class="colors -mr-3 flex flex-wrap">
+            {%for variant in cake_variants%}
+
+            <li class="text-heading mb-2 mr-2 flex h-9 w-9 cursor-pointer items-center justify-center rounded border border-gray-100 p-1 text-xs font-semibold uppercase transition duration-200 ease-in-out hover:border-black md:mb-3 md:mr-3 md:h-11 md:w-11 md:text-sm ">
+                {{variant.size_object}}
+                <br>₹{{ variant.price }}
+
+
+            </li>
+        {%endfor%}
+          </ul>
+        </div>
